@@ -35,8 +35,8 @@ export function ContentCard({ title, summary, tag, platform }: ContentCardProps)
         <span className={`text-xs font-medium ${config.color}`}>{tag}</span>
       </div>
 
-      <h4 className="text-lg font-semibold text-[#74685A] mb-2 leading-snug">{title}</h4>
-      <p className="text-[#403837]/70 text-sm mb-5 leading-relaxed flex-grow">{summary}</p>
+      <h4 className="text-base lg:text-lg font-semibold text-[#74685A] mb-2 leading-snug line-clamp-2">{title}</h4>
+      <p className="text-[#403837]/70 text-sm mb-5 leading-relaxed flex-grow line-clamp-3">{summary}</p>
 
       <div className="flex items-center gap-4 pt-4 border-t border-[#D8C3A5]/30">
         <button className="flex items-center gap-1.5 text-sm font-medium text-[#A47552] hover:text-[#2C1810] transition-colors group">
