@@ -10,15 +10,17 @@ interface ServiceCardProps {
   ctaText: string;
   featured?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
-export function ServiceCard({ 
-  title, 
-  subtitle, 
-  features, 
-  ctaText, 
+export function ServiceCard({
+  title,
+  subtitle,
+  features,
+  ctaText,
   featured,
-  className 
+  className,
+  onClick
 }: ServiceCardProps) {
   return (
     <motion.div
@@ -52,7 +54,7 @@ export function ServiceCard({
         ))}
       </div>
       
-      <Button variant="primary" className="w-full">
+      <Button variant="primary" className="w-full" onClick={onClick}>
         {ctaText}
       </Button>
     </motion.div>

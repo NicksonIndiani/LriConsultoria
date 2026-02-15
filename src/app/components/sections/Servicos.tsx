@@ -2,6 +2,15 @@ import { motion } from "motion/react";
 import { ServiceCard } from "../common/ServiceCard";
 
 export function Servicos() {
+  const scrollToCTA = () => {
+    document.querySelector("#cta-final")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const openWhatsApp = () => {
+    const msg = encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?");
+    window.open(`https://wa.me/5512991406108?text=${msg}`, "_blank");
+  };
+
   const services = [
     {
       title: "Diagnóstico de Carreira",
@@ -13,7 +22,8 @@ export function Servicos() {
         "Definição de prioridades"
       ],
       ctaText: "Quero começar",
-      featured: false
+      featured: false,
+      onClick: scrollToCTA
     },
     {
       title: "Mentoria de Carreira",
@@ -25,7 +35,10 @@ export function Servicos() {
         "Plano de execução de 30 dias"
       ],
       ctaText: "Ver como funciona",
-      featured: true
+      featured: true,
+      onClick: () => {
+        document.querySelector("#como-funciona")?.scrollIntoView({ behavior: "smooth" });
+      }
     },
     {
       title: "Acompanhamento",
@@ -37,7 +50,8 @@ export function Servicos() {
         "Suporte em negociações"
       ],
       ctaText: "Falar comigo",
-      featured: false
+      featured: false,
+      onClick: openWhatsApp
     }
   ];
 
