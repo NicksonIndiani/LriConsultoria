@@ -84,10 +84,12 @@ export function Conteudos() {
         }
       },
       {
-        breakpoint: 640,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "24px",
         }
       }
     ]
