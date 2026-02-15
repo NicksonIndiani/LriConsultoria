@@ -22,14 +22,13 @@
   color: #A47552;
 }
 
-/* Force single slide on mobile */
-@media (max-width: 767px) {
-  .slick-slider .slick-slide > div {
-    padding: 0 8px;
-  }
-  .slick-slider .slick-list {
-    margin: 0 -8px;
-  }
+/* Hide scrollbar for mobile scroll containers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Smooth scroll behavior */

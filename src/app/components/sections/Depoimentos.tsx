@@ -66,15 +66,6 @@ export function Depoimentos() {
           slidesToShow: 2,
           slidesToScroll: 1,
         }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "24px",
-        }
       }
     ]
   };
@@ -112,17 +103,28 @@ export function Depoimentos() {
           </p>
         </motion.div>
 
+        {/* Mobile: scroll nativo com snap */}
+        <div className="md:hidden">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 -mx-4 px-4 scrollbar-hide">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="snap-center shrink-0 w-[85vw]">
+                <TestimonialCard {...testimonial} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: react-slick carousel */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative px-4 md:px-14"
+          className="relative px-14 hidden md:block"
         >
-          {/* Custom Navigation Arrows */}
           <button
             onClick={() => sliderRef.current?.slickPrev()}
-            className="hidden md:flex absolute -left-1 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-white border border-[#D8C3A5]/60 text-[#A47552] hover:bg-[#A47552] hover:text-white hover:border-[#A47552] transition-all shadow-md"
+            className="flex absolute -left-1 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-white border border-[#D8C3A5]/60 text-[#A47552] hover:bg-[#A47552] hover:text-white hover:border-[#A47552] transition-all shadow-md"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -130,7 +132,7 @@ export function Depoimentos() {
 
           <button
             onClick={() => sliderRef.current?.slickNext()}
-            className="hidden md:flex absolute -right-1 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-white border border-[#D8C3A5]/60 text-[#A47552] hover:bg-[#A47552] hover:text-white hover:border-[#A47552] transition-all shadow-md"
+            className="flex absolute -right-1 top-1/2 -translate-y-1/2 z-10 w-11 h-11 items-center justify-center rounded-full bg-white border border-[#D8C3A5]/60 text-[#A47552] hover:bg-[#A47552] hover:text-white hover:border-[#A47552] transition-all shadow-md"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-5 h-5" />
