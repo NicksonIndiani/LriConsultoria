@@ -85,7 +85,7 @@ export function Depoimentos() {
   };
 
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-white">
+    <section className="py-14 md:py-20 lg:py-28 relative overflow-hidden bg-white">
       {/* Gradiente de transição do Beneficios */}
       <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#F5EDE3]/99 to-transparent" />
 
