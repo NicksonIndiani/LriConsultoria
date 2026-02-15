@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
-import { ProblemCard } from "./ProblemCard";
-import { Button } from "./Button";
+import { ProblemCard } from "../common/ProblemCard";
+import { Button } from "../common/Button";
 
 export function ParaQuemE() {
   const problems = [

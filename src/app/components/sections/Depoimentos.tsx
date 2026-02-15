@@ -2,72 +2,64 @@ import { useRef } from "react";
 import { motion } from "motion/react";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ContentCard } from "./ContentCard";
-import { Button } from "./Button";
+import { TestimonialCard } from "../common/TestimonialCard";
+import { Button } from "../common/Button";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export function Conteudos() {
+export function Depoimentos() {
   const sliderRef = useRef<Slider>(null);
 
-  const contents = [
+  const testimonials = [
     {
-      title: "Como construir um LinkedIn que atrai oportunidades",
-      summary: "Os 5 elementos essenciais que recrutadores buscam no seu perfil.",
-      tag: "LinkedIn"
-    },
-    {
-      title: "Storytelling em entrevistas: como contar sua história",
-      summary: "A estrutura simples para responder 'fale sobre você' com confiança.",
-      tag: "Entrevista"
-    },
-    {
-      title: "Transição de carreira sem começar do zero",
-      summary: "Como usar suas habilidades transferíveis de forma estratégica.",
+      name: "M., Analista",
+      role: "Analista de Marketing",
+      text: "Consegui clareza sobre meu próximo passo. O plano de 30 dias me deu direção e confiança para aplicar nas vagas certas.",
       tag: "Transição"
     },
     {
-      title: "3 sinais de que você está pronto(a) para promoção",
-      summary: "E como posicionar sua conversa com liderança.",
+      name: "R., Gerente",
+      role: "Gerente de Projetos",
+      text: "Meu LinkedIn mudou completamente. Comecei a receber mensagens de recrutadores pela primeira vez em anos.",
+      tag: "Reposicionamento"
+    },
+    {
+      name: "A., Coordenadora",
+      role: "Coordenadora Financeira",
+      text: "Estava travada há meses. Depois das sessões, tive clareza total sobre o que buscar e como me posicionar. Em 6 semanas, promoção.",
       tag: "Promoção"
     },
     {
-      title: "Currículo que passa pelo ATS e impressiona pessoas",
-      summary: "A anatomia de um currículo que funciona em 2026.",
-      tag: "Currículo"
+      name: "L., Analista Sr.",
+      role: "Analista Sênior de RH",
+      text: "O processo de mentoria me ajudou a organizar minha narrativa e entender meu valor. As entrevistas ficaram muito mais naturais.",
+      tag: "Entrevistas"
     },
     {
-      title: "Networking estratégico: qualidade sobre quantidade",
-      summary: "Como criar conexões reais que geram oportunidades.",
-      tag: "Networking"
+      name: "C., Especialista",
+      role: "Especialista em TI",
+      text: "Queria voltar ao mercado após um período sabático. O diagnóstico me mostrou exatamente onde focar energia e tempo.",
+      tag: "Retorno"
     },
     {
-      title: "Como se preparar para entrevistas comportamentais",
-      summary: "O método STAR aplicado de forma prática e autêntica.",
-      tag: "Entrevista"
-    },
-    {
-      title: "Sinais de que é hora de mudar de emprego",
-      summary: "Quando sair não é desistir, é estratégia.",
-      tag: "Carreira"
+      name: "P., Consultora",
+      role: "Consultora de Vendas",
+      text: "A clareza de posicionamento que ganhei foi transformadora. Hoje sei exatamente o que ofereço e para quem.",
+      tag: "Transição"
     }
   ];
 
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
     arrows: false,
     responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        }
-      },
       {
         breakpoint: 1024,
         settings: {
@@ -85,22 +77,26 @@ export function Conteudos() {
     ]
   };
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="conteudos" className="py-20 lg:py-28 bg-white bg-opacity-40">
+    <section className="py-20 lg:py-28 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8 max-w-[1440px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-4"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#74685A] mb-4">
-            Conteúdos práticos para avançar na carreira
+            O que dizem após aplicar o processo
           </h2>
-          <p className="text-lg text-[#403837] opacity-80">
-            Ideias aplicáveis — direto ao ponto.
-          </p>
         </motion.div>
 
         <motion.div
@@ -108,13 +104,13 @@ export function Conteudos() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative px-4 md:px-12 mb-8"
+          className="relative px-4 md:px-12"
         >
           {/* Custom Navigation Arrows */}
           <button
             onClick={() => sliderRef.current?.slickPrev()}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white border-2 border-[#D8C3A5] text-[#A47552] hover:bg-[#A47552] hover:text-white hover:border-[#A47552] transition-all shadow-lg"
-            aria-label="Previous content"
+            aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -122,15 +118,15 @@ export function Conteudos() {
           <button
             onClick={() => sliderRef.current?.slickNext()}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white border-2 border-[#D8C3A5] text-[#A47552] hover:bg-[#A47552] hover:text-white hover:border-[#A47552] transition-all shadow-lg"
-            aria-label="Next content"
+            aria-label="Next testimonial"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
 
           <Slider ref={sliderRef} {...settings}>
-            {contents.map((content, index) => (
+            {testimonials.map((testimonial, index) => (
               <div key={index} className="px-3">
-                <ContentCard {...content} />
+                <TestimonialCard {...testimonial} />
               </div>
             ))}
           </Slider>
@@ -141,10 +137,10 @@ export function Conteudos() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
+          className="text-center mt-12"
         >
-          <Button variant="secondary">
-            Ver todos os conteúdos
+          <Button onClick={() => scrollToSection("#cta-final")}>
+            Quero ter esse tipo de clareza
           </Button>
         </motion.div>
       </div>

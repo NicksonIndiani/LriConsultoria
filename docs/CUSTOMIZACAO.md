@@ -20,7 +20,7 @@ Uma landing page premium e completa para consultoria de carreira, com design sof
 
 Use o "Find & Replace" do seu editor para substituir:
 
-- `[NOME DA CONSULTORIA]` → Nome da sua consultoria (ex: "LRI Consultoria de Carreira")
+- `LRI Consultoria de Carreiras` → Nome da sua consultoria (ex: "LRI Consultoria de Carreira")
 - `[NOME DA CONSULTORA]` → Seu nome completo
 - `[LINK_AGENDAR]` → URL do seu calendário (Calendly, Google Calendar, etc.)
 - `[NUMERO]` → Número do WhatsApp com código do país (ex: 5511999999999)

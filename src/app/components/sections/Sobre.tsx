@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import { Button } from "./Button";
+import { Button } from "../common/Button";
 import { CheckCircle } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "../common/ImageWithFallback";
 
 export function Sobre() {
   const principles = [

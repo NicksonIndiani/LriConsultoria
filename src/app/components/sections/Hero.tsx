@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
-import { Button } from "./Button";
-import { Chip } from "./Chip";
+import { Button } from "../common/Button";
+import { Chip } from "../common/Chip";
 import { MessageCircle } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ImageWithFallback } from "../common/ImageWithFallback";
 
 export function Hero() {
   const scrollToSection = (href: string) => {

@@ -7,7 +7,7 @@ Este arquivo mostra um exemplo de como os placeholders podem ser preenchidos.
 ### Substituições (Find & Replace):
 
 ```
-[NOME DA CONSULTORIA]     → LRI Consultoria de Carreira
+LRI Consultoria de Carreiras     → LRI Consultoria de Carreira
 [NOME DA CONSULTORA]      → Luciana Rodrigues
 [LINK_AGENDAR]            → https://calendly.com/luciana-consultoria/30min
 [NUMERO]                  → 5511987654321

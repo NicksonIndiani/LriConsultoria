@@ -159,7 +159,7 @@ npm run build
 ```bash
 # Use Find & Replace no seu editor:
 
-[NOME DA CONSULTORIA]  → Sua Consultoria
+LRI Consultoria de Carreiras  → Sua Consultoria
 [NOME DA CONSULTORA]   → Seu Nome
 [LINK_AGENDAR]         → https://calendly.com/...
 [NUMERO]               → 5511999998888

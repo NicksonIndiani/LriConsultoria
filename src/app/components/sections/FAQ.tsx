@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Accordion } from "./AccordionFAQ";
+import { Accordion } from "../common/AccordionFAQ";
 
 export function FAQ() {
   const faqItems = [

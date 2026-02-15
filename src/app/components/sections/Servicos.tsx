@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ServiceCard } from "./ServiceCard";
+import { ServiceCard } from "../common/ServiceCard";
 
 export function Servicos() {
   const services = [

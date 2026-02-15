@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand Column */}
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-white">
-              [NOME DA CONSULTORIA]
+              LRI Consultoria de Carreiras
             </h3>
             <p className="text-[#D9C2A3] opacity-90 mb-4">
               Carreira não é acaso. É construção consciente.
@@ -73,7 +73,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-[#8A785D] pt-8">
           <p className="text-center text-sm text-[#D9C2A3] opacity-70">
-            © {currentYear} [NOME DA CONSULTORIA]. Todos os direitos reservados.
+            © {currentYear} LRI Consultoria de Carreiras. Todos os direitos reservados.
           </p>
         </div>
       </div>

@@ -1,16 +1,16 @@
-import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { ParaQuemE } from "./components/ParaQuemE";
-import { Servicos } from "./components/Servicos";
-import { ComoFunciona } from "./components/ComoFunciona";
-import { Beneficios } from "./components/Beneficios";
-import { Depoimentos } from "./components/Depoimentos";
-import { Conteudos } from "./components/Conteudos";
-import { Sobre } from "./components/Sobre";
-import { FAQ } from "./components/FAQ";
-import { CTAFinal } from "./components/CTAFinal";
-import { Footer } from "./components/Footer";
-import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
+import { Header } from "./components/sections/Header";
+import { Hero } from "./components/sections/Hero";
+import { ParaQuemE } from "./components/sections/ParaQuemE";
+import { Servicos } from "./components/sections/Servicos";
+import { ComoFunciona } from "./components/sections/ComoFunciona";
+import { Beneficios } from "./components/sections/Beneficios";
+import { Depoimentos } from "./components/sections/Depoimentos";
+import { Conteudos } from "./components/sections/Conteudos";
+import { Sobre } from "./components/sections/Sobre";
+import { FAQ } from "./components/sections/FAQ";
+import { CTAFinal } from "./components/sections/CTAFinal";
+import { Footer } from "./components/sections/Footer";
+import { FloatingWhatsApp } from "./components/sections/FloatingWhatsApp";
 
 export default function App() {
   return (

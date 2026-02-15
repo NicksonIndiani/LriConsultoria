@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { cn } from "./ui/utils";
+import { cn } from "../ui/utils";
 import { Button } from "./Button";
 import { Badge } from "./Badge";
 

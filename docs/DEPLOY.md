@@ -4,7 +4,7 @@
 
 ### 1. Personalizações Obrigatórias
 
-- [ ] Substituir `[NOME DA CONSULTORIA]` em todos os arquivos
+- [ ] Substituir `LRI Consultoria de Carreiras` em todos os arquivos
 - [ ] Substituir `[NOME DA CONSULTORA]` em todos os arquivos
 - [ ] Adicionar link real de agendamento `[LINK_AGENDAR]`
 - [ ] Adicionar número de WhatsApp `[NUMERO]` (formato: 5511999999999)
@@ -27,20 +27,20 @@
 Adicione no `<head>` do seu index.html:
 
 ```html
-<title>Consultoria de Carreira | [NOME DA CONSULTORIA]</title>
+<title>Consultoria de Carreira | LRI Consultoria de Carreiras</title>
 <meta name="description" content="Clareza, posicionamento e plano de ação para sua próxima fase profissional. Mentoria de carreira com estratégia e pé no chão." />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://seusite.com/" />
-<meta property="og:title" content="[NOME DA CONSULTORIA] - Consultoria de Carreira" />
+<meta property="og:title" content="LRI Consultoria de Carreiras - Consultoria de Carreira" />
 <meta property="og:description" content="Carreira não é acaso. É construção consciente." />
 <meta property="og:image" content="https://seusite.com/og-image.jpg" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content="https://seusite.com/" />
-<meta property="twitter:title" content="[NOME DA CONSULTORIA] - Consultoria de Carreira" />
+<meta property="twitter:title" content="LRI Consultoria de Carreiras - Consultoria de Carreira" />
 <meta property="twitter:description" content="Carreira não é acaso. É construção consciente." />
 <meta property="twitter:image" content="https://seusite.com/og-image.jpg" />
 ```

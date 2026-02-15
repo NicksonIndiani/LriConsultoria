@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Button } from "./Button";
+import { Button } from "../common/Button";
 import { MessageCircle, Calendar } from "lucide-react";
 
 export function CTAFinal() {

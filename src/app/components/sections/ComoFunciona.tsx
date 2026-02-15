@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Button } from "./Button";
+import { Button } from "../common/Button";
 import { Check } from "lucide-react";
 
 export function ComoFunciona() {

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Menu, X, MessageCircle } from "lucide-react";
-import { Button } from "./Button";
-import { cn } from "./ui/utils";
+import { Button } from "../common/Button";
+import { cn } from "../ui/utils";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,8 +37,8 @@ export function Header() {
       <motion.header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled 
-            ? "bg-[#D9C2A3] bg-opacity-95 backdrop-blur-md shadow-lg border-b border-[#D8C3A5]" 
+          isScrolled
+            ? "bg-[#D9C2A3] bg-opacity-95 backdrop-blur-md shadow-lg border-b border-[#D8C3A5]"
             : "bg-[#D9C2A3] bg-opacity-70 backdrop-blur-sm"
         )}
         initial={{ y: -100 }}
@@ -52,7 +52,7 @@ export function Header() {
           )}>
             {/* Logo */}
             <a href="#hero" className="text-xl font-semibold text-[#74685A] hover:text-[#A47552] transition-colors">
-              [NOME DA CONSULTORIA]
+              LRI Consultoria de Carreiras
             </a>
 
             {/* Desktop Navigation */}
@@ -71,15 +71,15 @@ export function Header() {
 
             {/* Desktop CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button 
-                variant="secondary" 
+              <Button
+                variant="secondary"
                 size="sm"
                 onClick={() => window.open("https://wa.me/[NUMERO]", "_blank")}
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp
               </Button>
-              <Button 
+              <Button
                 size="sm"
                 onClick={() => scrollToSection("#cta-final")}
               >
@@ -120,9 +120,9 @@ export function Header() {
               {item.label}
             </button>
           ))}
-          
+
           <div className="flex flex-col gap-3 mt-6">
-            <Button 
+            <Button
               variant="secondary"
               onClick={() => {
                 window.open("https://wa.me/[NUMERO]", "_blank");
@@ -132,7 +132,7 @@ export function Header() {
               <MessageCircle className="w-4 h-4" />
               WhatsApp
             </Button>
-            <Button 
+            <Button
               onClick={() => scrollToSection("#cta-final")}
             >
               Agendar conversa

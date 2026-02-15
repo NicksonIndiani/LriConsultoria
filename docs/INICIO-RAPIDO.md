@@ -20,7 +20,7 @@ Uma **landing page premium completa** para consultoria de carreira, com:
 Abra o projeto no seu editor de código e use **Find & Replace** (Ctrl+F ou Cmd+F):
 
 ```
-Buscar: [NOME DA CONSULTORIA]
+Buscar: LRI Consultoria de Carreiras
 Substituir por: Sua Consultoria Ltda
 
 Buscar: [NOME DA CONSULTORA]

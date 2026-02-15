@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { cn } from "./ui/utils";
+import { cn } from "../ui/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
