@@ -26,7 +26,7 @@ export function AgendamentoModal({ isOpen, onClose }: AgendamentoModalProps) {
     console.log("Dados do formulário:", formData);
     
     // Redirecionar para Calendly ou outro sistema
-    window.open("[LINK_AGENDAR]", "_blank");
+    window.open("https://calendly.com/contato-lriconsultoria/30min", "_blank");
     
     onClose();
   };

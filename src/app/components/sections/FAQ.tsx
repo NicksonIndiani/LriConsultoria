@@ -30,8 +30,11 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white bg-opacity-40">
-      <div className="container mx-auto px-4 lg:px-8 max-w-[900px]">
+    <section id="faq" className="py-20 lg:py-28 relative bg-[#F5EDE3]">
+      {/* Gradiente de transição do Sobre */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-white/99 to-transparent" />
+
+      <div className="container mx-auto px-4 lg:px-8 max-w-[900px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,6 +45,9 @@ export function FAQ() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#74685A] mb-4">
             Perguntas frequentes
           </h2>
+          <p className="text-lg text-[#403837]/60">
+            Tire suas dúvidas antes de dar o próximo passo
+          </p>
         </motion.div>
 
         <motion.div

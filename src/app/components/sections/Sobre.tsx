@@ -5,9 +5,9 @@ import { ImageWithFallback } from "../common/ImageWithFallback";
 
 export function Sobre() {
   const principles = [
-    "Estratégia com simplicidade",
-    "Posicionamento com autenticidade",
-    "Plano executável"
+    "Estratégia antes de volume: menos candidatura aleatória, mais aderência.",
+    "Clareza vem do movimento: você não precisa de certeza, precisa de rota.",
+    "Método + humanidade: questionamento inteligente, sem julgamento."
   ];
 
   const scrollToSection = (href: string) => {
@@ -18,8 +18,11 @@ export function Sobre() {
   };
 
   return (
-    <section id="sobre" className="py-20 lg:py-28 relative">
-      <div className="container mx-auto px-4 lg:px-8 max-w-[1440px]">
+    <section id="sobre" className="py-20 lg:py-28 relative bg-white">
+      {/* Gradiente de transição do Conteudos */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#F5EDE3]/99 to-transparent" />
+
+      <div className="container mx-auto px-4 lg:px-8 max-w-[1440px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,35 +31,28 @@ export function Sobre() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#74685A] mb-4">
-            Sobre [NOME DA CONSULTORA]
+            Sobre Letícia Indiani
           </h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left - Image and Credentials */}
+          {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
           >
-            <div className="rounded-2xl overflow-hidden border-2 border-[#D8C3A5] shadow-xl max-w-md mx-auto lg:mx-0">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop"
-                alt="[NOME DA CONSULTORA]"
-                className="w-full h-auto aspect-[4/5] object-cover"
-              />
-            </div>
-
-            <div className="bg-white bg-opacity-60 backdrop-blur-sm rounded-xl border border-[#D8C3A5] p-6 max-w-md mx-auto lg:mx-0">
-              <h4 className="font-semibold text-[#74685A] mb-3">Credenciais</h4>
-              <ul className="space-y-2 text-sm text-[#403837]">
-                <li>• 10+ anos em RH e desenvolvimento de carreira</li>
-                <li>• Certificação Internacional em Career Coaching</li>
-                <li>• MBA em Gestão de Pessoas e Liderança</li>
-                <li>• 300+ profissionais acompanhados</li>
-              </ul>
+            <div className="relative max-w-md mx-auto lg:mx-0">
+              {/* Glow effect */}
+              <div className="absolute -inset-3 bg-[#C5A253]/15 blur-2xl rounded-3xl" />
+              <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl">
+                <ImageWithFallback
+                  src="/assets/Fotos/leticia-indiani-sobre.png"
+                  alt="Letícia Indiani"
+                  className="w-full h-auto aspect-[4/5] object-cover"
+                />
+              </div>
             </div>
           </motion.div>
 
@@ -70,19 +66,19 @@ export function Sobre() {
           >
             <div className="space-y-6">
               <p className="text-xl md:text-2xl text-[#403837] leading-relaxed font-medium">
-                Apoio pessoas a tomarem decisões profissionais com clareza, estratégia e execução.
+                Faço a ponte entre formação e atuação real — com clareza, posicionamento e plano prático.
               </p>
 
-              <p className="text-lg text-[#403837] leading-relaxed opacity-90">
-                Meu trabalho une escuta ativa e plano prático. Não acredito em fórmulas mágicas, mas em processo, consistência e estratégia personalizada.
+              <p className="text-lg text-[#403837]/80 leading-relaxed">
+                Meu trabalho é para quem já escolheu a área, mas sente que a carreira está &quot;quase lá&quot;. Eu organizo sua história, fortaleço sua narrativa profissional e transformo esforço em estratégia — pra você parar de aplicar no escuro e começar a disputar as vagas certas.
               </p>
 
-              <p className="text-[#403837] leading-relaxed opacity-80">
-                Ao longo de mais de uma década trabalhando com desenvolvimento profissional, aprendi que carreira não se constrói no improviso. Exige clareza de objetivo, posicionamento autêntico e, acima de tudo, ação estruturada.
+              <p className="text-[#403837]/70 leading-relaxed">
+                Eu junto escuta ativa + análise crítica + método, porque dica solta não resolve travamento. Você sai com direção, clareza do que buscar e um plano de ação possível (sem promessas milagrosas, só execução inteligente).
               </p>
             </div>
 
-            <div className="space-y-4 pt-6 border-t border-[#D8C3A5]">
+            <div className="space-y-4 pt-6 border-t border-[#D8C3A5]/40">
               <h4 className="font-semibold text-[#74685A] text-lg">Meus princípios:</h4>
               {principles.map((principle, index) => (
                 <motion.div
@@ -91,10 +87,10 @@ export function Sobre() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-3"
+                  className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#F5EDE3]/50 transition-colors"
                 >
-                  <CheckCircle className="w-5 h-5 text-[#C5A253] flex-shrink-0" />
-                  <span className="text-[#403837]">{principle}</span>
+                  <CheckCircle className="w-5 h-5 text-[#C5A253] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#403837] font-medium">{principle}</span>
                 </motion.div>
               ))}
             </div>

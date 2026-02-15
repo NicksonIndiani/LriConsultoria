@@ -42,8 +42,11 @@ export function Servicos() {
   ];
 
   return (
-    <section id="servicos" className="py-20 lg:py-28 bg-white bg-opacity-40">
-      <div className="container mx-auto px-4 lg:px-8 max-w-[1440px]">
+    <section id="servicos" className="py-20 lg:py-28 bg-white relative">
+      {/* Gradiente de transição da ParaQuemE */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F5EDE3] to-transparent" />
+
+      <div className="container mx-auto px-4 lg:px-8 max-w-[1440px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -10,8 +10,8 @@ export function ProblemCard({ text, className }: ProblemCardProps) {
   return (
     <motion.div
       className={cn(
-        "p-6 rounded-2xl border border-[#D8C3A5] bg-white bg-opacity-50 backdrop-blur-sm",
-        "hover:border-[#C5A253] hover:shadow-lg hover:-translate-y-1 transition-all duration-300",
+        "p-6 rounded-2xl border border-[#D8C3A5] bg-white shadow-sm",
+        "hover:border-[#C5A253] hover:shadow-md hover:-translate-y-1 transition-all duration-300",
         "cursor-default",
         className
       )}
@@ -20,7 +20,7 @@ export function ProblemCard({ text, className }: ProblemCardProps) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
     >
-      <p className="text-[#403837] text-center leading-relaxed">{text}</p>
+      <p className="text-[#403837] font-medium text-center leading-relaxed">{text}</p>
     </motion.div>
   );
 }

@@ -4,18 +4,21 @@ import { MessageCircle, Calendar } from "lucide-react";
 
 export function CTAFinal() {
   return (
-    <section id="cta-final" className="py-20 lg:py-28 relative overflow-hidden">
-      {/* Subtle glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#C5A253] via-transparent to-[#D9C2A3] opacity-10" />
-      
+    <section id="cta-final" className="py-20 lg:py-28 relative overflow-hidden bg-[#D9C2A3]">
+      {/* Gradiente de transição do FAQ */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#F5EDE3]/99 to-transparent" />
+
       <div className="container mx-auto px-4 lg:px-8 max-w-[1000px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="bg-white bg-opacity-70 backdrop-blur-sm rounded-3xl border-2 border-[#D8C3A5] p-8 md:p-12 lg:p-16 text-center shadow-2xl"
+          className="bg-white rounded-3xl border border-[#D8C3A5]/60 p-8 md:p-12 lg:p-16 text-center shadow-2xl relative overflow-hidden"
         >
+          {/* Top accent bar */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A47552] via-[#C5A253] to-[#A47552]" />
+
           {/* Decorative element */}
           <motion.div
             initial={{ scale: 0 }}
@@ -40,7 +43,7 @@ export function CTAFinal() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-[#403837] mb-10 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-[#403837]/80 mb-10 max-w-2xl mx-auto"
           >
             Uma conversa pode organizar o que hoje parece confuso.
           </motion.p>
@@ -52,17 +55,20 @@ export function CTAFinal() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button 
+            <Button
               size="lg"
-              href="[LINK_AGENDAR]"
+              onClick={() => window.open("https://calendly.com/contato-lriconsultoria/30min", "_blank")}
             >
               <Calendar className="w-5 h-5" />
               Agendar conversa
             </Button>
-            <Button 
+            <Button
               variant="secondary"
               size="lg"
-              onClick={() => window.open("https://wa.me/[NUMERO]", "_blank")}
+              onClick={() => {
+                const msg = encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?");
+                window.open(`https://wa.me/5512991406108?text=${msg}`, "_blank");
+              }}
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp
@@ -74,7 +80,7 @@ export function CTAFinal() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-sm text-[#403837] opacity-70 mt-8"
+            className="text-sm text-[#403837]/50 mt-8"
           >
             Primeira conversa sem compromisso • 100% online
           </motion.p>

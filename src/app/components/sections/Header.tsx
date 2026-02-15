@@ -7,6 +7,8 @@ import { cn } from "../ui/utils";
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [isPastHero, setIsPastHero] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,39 @@ export function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const heroEl = document.getElementById("hero");
+    if (heroEl) {
+      const heroObserver = new IntersectionObserver(
+        ([entry]) => setIsPastHero(!entry.isIntersecting),
+        { threshold: 0.1 }
+      );
+      heroObserver.observe(heroEl);
+      return () => heroObserver.disconnect();
+    }
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["servicos", "como-funciona", "conteudos", "sobre", "faq"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const navItems = [
@@ -36,10 +71,10 @@ export function Header() {
     <>
       <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-[#D9C2A3] bg-opacity-95 backdrop-blur-md shadow-lg border-b border-[#D8C3A5]"
-            : "bg-[#D9C2A3] bg-opacity-70 backdrop-blur-sm"
+            ? "bg-[#D9C2A3]/95 backdrop-blur-md shadow-[0_1px_0_rgba(164,117,82,0.15)]"
+            : "bg-transparent"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -48,12 +83,10 @@ export function Header() {
         <div className="container mx-auto px-4 lg:px-8 max-w-[1440px]">
           <div className={cn(
             "flex items-center justify-between transition-all duration-300",
-            isScrolled ? "py-3" : "py-4"
+            isScrolled ? "py-0.5" : "py-1"
           )}>
             {/* Logo */}
-            <a href="#hero" className="text-xl font-semibold text-[#74685A] hover:text-[#A47552] transition-colors">
-              LRI Consultoria de Carreiras
-            </a>
+            <img className="w-24 pl-4 lg:pl-0 cursor-pointer" onClick={() => scrollToSection("#hero")} src="./assets/logo/Logo.svg" alt="Logo" />
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -61,31 +94,46 @@ export function Header() {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-[#403837] hover:text-[#A47552] transition-colors relative group"
+                  className={cn(
+                    "text-base font-medium transition-colors relative group",
+                    activeSection === item.href
+                      ? "text-[#2C1810]"
+                      : "text-[#403837] hover:text-[#2C1810]"
+                  )}
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C5A253] group-hover:w-full transition-all duration-300" />
+                  <span className={cn(
+                    "absolute bottom-0 left-0 h-0.5 bg-[#C5A253] transition-all duration-300",
+                    activeSection === item.href ? "w-full" : "w-0 group-hover:w-full"
+                  )} />
                 </button>
               ))}
             </nav>
 
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
+            {/* Desktop CTAs - aparecem após passar da Hero */}
+            <motion.div
+              className="hidden lg:flex items-center gap-3"
+              initial={false}
+              animate={{ opacity: isPastHero ? 1 : 0, x: isPastHero ? 0 : 20 }}
+              transition={{ duration: 0.3 }}
+              style={{ pointerEvents: isPastHero ? "auto" : "none" }}
+            >
               <Button
                 variant="secondary"
-                size="sm"
-                onClick={() => window.open("https://wa.me/[NUMERO]", "_blank")}
+                onClick={() => {
+                  const msg = encodeURIComponent("Olá, Letícia! \nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?");
+                  window.open(`https://wa.me/5512991406108?text=${msg}`, "_blank");
+                }}
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp
               </Button>
               <Button
-                size="sm"
                 onClick={() => scrollToSection("#cta-final")}
               >
                 Agendar conversa
               </Button>
-            </div>
+            </motion.div>
 
             {/* Mobile Menu Button */}
             <button
@@ -125,7 +173,8 @@ export function Header() {
             <Button
               variant="secondary"
               onClick={() => {
-                window.open("https://wa.me/[NUMERO]", "_blank");
+                const msg = encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?");
+                window.open(`https://wa.me/5512991406108?text=${msg}`, "_blank");
                 setIsMobileMenuOpen(false);
               }}
             >

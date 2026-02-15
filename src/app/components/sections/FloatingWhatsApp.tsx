@@ -18,7 +18,7 @@ export function FloatingWhatsApp() {
     <AnimatePresence>
       {isVisible && (
         <motion.a
-          href="https://wa.me/[NUMERO]"
+          href={`https://wa.me/5512991406108?text=${encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?")}`}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ scale: 0, opacity: 0 }}

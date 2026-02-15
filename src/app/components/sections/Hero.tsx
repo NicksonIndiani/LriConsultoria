@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { Button } from "../common/Button";
-import { Chip } from "../common/Chip";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Monitor, ClipboardList, UserCheck } from "lucide-react";
 import { ImageWithFallback } from "../common/ImageWithFallback";
 
 export function Hero() {
@@ -32,17 +31,34 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl leading-tight text-[#74685A]"
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-[3.25rem] leading-tight text-[#74685A]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Carreira não é acaso.{" "}
+              <span className="block">É construção consciente.</span>
+            </motion.h1>
+
+            {/* Badge */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Carreira não é acaso. É construção consciente.
-            </motion.h1>
+              <motion.span
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A47552]/10 border border-[#A47552]/30 text-sm text-[#A47552] font-medium"
+                animate={{ opacity: [0.7, 1, 0.7], y: [0, -2, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <span className="w-2 h-2 rounded-full bg-[#C5A253] animate-pulse" />
+                Consultoria especializada em carreiras
+              </motion.span>
+            </motion.div>
 
-            <motion.p 
-              className="text-lg md:text-xl text-[#403837] leading-relaxed"
+            <motion.p
+              className="text-lg md:text-xl text-[#403837]/80 leading-relaxed max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -50,37 +66,50 @@ export function Hero() {
               Clareza, posicionamento e plano de ação para sua próxima fase profissional — com estratégia e pé no chão.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <Button 
+              <Button
                 size="lg"
                 onClick={() => scrollToSection("#cta-final")}
               >
                 Agendar conversa
               </Button>
-              <Button 
-                variant="secondary" 
+              <Button
+                variant="secondary"
                 size="lg"
-                onClick={() => window.open("https://wa.me/[NUMERO]", "_blank")}
+                onClick={() => {
+                  const msg = encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?");
+                  window.open(`https://wa.me/5512991406108?text=${msg}`, "_blank");
+                }}
               >
                 <MessageCircle className="w-5 h-5" />
                 Falar no WhatsApp
               </Button>
             </motion.div>
 
-            <motion.div 
-              className="flex flex-wrap gap-3"
+            {/* Diferenciais */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 pt-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Chip>Atendimento online</Chip>
-              <Chip>Plano prático</Chip>
-              <Chip>Acompanhamento personalizado</Chip>
+              <div className="flex items-center gap-2.5 text-[#403837]/70">
+                <Monitor className="w-4.5 h-4.5 text-[#A47552]" />
+                <span className="text-sm">Atendimento online</span>
+              </div>
+              <div className="flex items-center gap-2.5 text-[#403837]/70">
+                <ClipboardList className="w-4.5 h-4.5 text-[#A47552]" />
+                <span className="text-sm">Plano prático</span>
+              </div>
+              <div className="flex items-center gap-2.5 text-[#403837]/70">
+                <UserCheck className="w-4.5 h-4.5 text-[#A47552]" />
+                <span className="text-sm">Acompanhamento personalizado</span>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -98,8 +127,8 @@ export function Hero() {
               {/* Image container */}
               <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl aspect-[3/4] max-w-md mx-auto">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
-                  alt="[NOME DA CONSULTORA] - Consultora de Carreira"
+                  src="/assets/Fotos/Leticia-indiani.png"
+                  alt="Letícia Indiani - Consultora de Carreira"
                   className="w-full h-full object-cover"
                 />
               </div>
