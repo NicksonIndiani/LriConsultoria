@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import Slider from "react-slick";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ContentCard } from "../common/ContentCard";
-import { Button } from "../common/Button";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -12,52 +11,53 @@ export function Conteudos() {
 
   const contents = [
     {
-      title: "Como construir um LinkedIn que atrai oportunidades",
-      summary: "Os 5 elementos essenciais que recrutadores buscam no seu perfil.",
-      tag: "LinkedIn",
-      platform: "linkedin" as const
+      title: "O que o mercado realmente espera de quem está no início da carreira?",
+      summary: "Não é alguém pronto. O mercado busca iniciantes que saibam onde querem chegar e consigam se posicionar com clareza.",
+      tag: "Mercado",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_como-analisar-o-mercado-e-entender-onde-o-activity-7426580925104185344-iJ0M"
     },
     {
-      title: "Storytelling em entrevistas: como contar sua história",
-      summary: "A estrutura simples para responder 'fale sobre você' com confiança.",
-      tag: "Entrevista",
-      platform: "instagram" as const
+      title: "Como analisar o mercado e entender onde o seu perfil se encaixa",
+      summary: "Analisar o mercado é cruzar o que as empresas pedem, o que você já construiu e onde existe espaço real para evolução.",
+      tag: "Posicionamento",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_como-analisar-o-mercado-e-entender-onde-o-activity-7426580925104185344-iJ0M"
     },
     {
-      title: "Transição de carreira sem começar do zero",
-      summary: "Como usar suas habilidades transferíveis de forma estratégica.",
-      tag: "Transição",
-      platform: "linkedin" as const
+      title: "Employee Experience (EX): o que isso tem a ver com a sua carreira?",
+      summary: "Profissionais maduros aprendem a escolher ambientes, não apenas cargos. Entender EX é uma habilidade estratégica.",
+      tag: "Cultura",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_employeeexperience-ex-carreira-activity-7419682766415646720-LMvO"
     },
     {
-      title: "3 sinais de que você está pronto(a) para promoção",
-      summary: "E como posicionar sua conversa com liderança.",
-      tag: "Promoção",
-      platform: "instagram" as const
+      title: "Metas com Clareza: menos promessa, mais progresso",
+      summary: "Metas práticas e realistas usando a técnica SMART. Comece com passos pequenos, ajuste quando necessário e celebre cada conquista.",
+      tag: "Metas",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_metas-com-clareza-menos-promessa-mais-activity-7417333554055065600-MIvy"
     },
     {
-      title: "Currículo que passa pelo ATS e impressiona pessoas",
-      summary: "A anatomia de um currículo que funciona em 2026.",
-      tag: "Currículo",
-      platform: "linkedin" as const
+      title: "Alta performance e o fator humano que a sustenta",
+      summary: "Engajamento e satisfação não são apenas ideias do RH — são métricas analíticas com impacto direto no financeiro e no operacional.",
+      tag: "Cultura",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_engajamentoestrataezgico-satisfaaexaetonotrabalho-activity-7386535573425033216-YRKv"
     },
     {
-      title: "Networking estratégico: qualidade sobre quantidade",
-      summary: "Como criar conexões reais que geram oportunidades.",
-      tag: "Networking",
-      platform: "instagram" as const
+      title: "Dia Mundial de Conscientização sobre o Autismo e o mercado de trabalho",
+      summary: "85% dos adultos autistas estão desempregados. A inclusão vai muito além da contratação — times diversos são mais inovadores.",
+      tag: "Inclusão",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_hoje-2-de-abril-%C3%A9-o-dia-mundial-de-conscientiza%C3%A7%C3%A3o-activity-7313317731083153408-ePz0"
     },
     {
-      title: "Como se preparar para entrevistas comportamentais",
-      summary: "O método STAR aplicado de forma prática e autêntica.",
-      tag: "Entrevista",
-      platform: "linkedin" as const
-    },
-    {
-      title: "Sinais de que é hora de mudar de emprego",
-      summary: "Quando sair não é desistir, é estratégia.",
-      tag: "Carreira",
-      platform: "instagram" as const
+      title: "Planejamento de Carreira: Comece pelo Autoconhecimento",
+      summary: "Alinhar o estudo de mercado com o autoconhecimento ajuda a identificar oportunidades que se conectam ao seu propósito.",
+      tag: "Autoconhecimento",
+      platform: "linkedin" as const,
+      link: "https://www.linkedin.com/posts/leticiaindiani_planejamento-de-carreira-comece-pelo-autoconhecimento-activity-7256779874491621376--EyI"
     }
   ];
 
@@ -151,17 +151,6 @@ export function Conteudos() {
           </Slider>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <Button variant="secondary">
-            Ver todos os conteúdos
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

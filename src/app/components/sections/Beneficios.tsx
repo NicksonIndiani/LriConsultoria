@@ -98,7 +98,7 @@ export function Beneficios() {
             <h3 className="text-2xl font-semibold text-[#74685A] mb-3">Plano de 30 dias</h3>
 
             <p className="text-[#403837]/70 mb-8 leading-relaxed">
-              Um roteiro claro e executável para você começar a avançar imediatamente após nossas sessões.
+              Com base no diagnóstico de perfil, padrões identificados e pontos de atenção mapeados na mentoria, você recebe um plano estruturado para organizar prioridades, fortalecer posicionamento e avançar com estratégia.
             </p>
 
             <div className="space-y-3">

@@ -2,56 +2,68 @@ import { motion } from "motion/react";
 import { ServiceCard } from "../common/ServiceCard";
 
 export function Servicos() {
-  const scrollToCTA = () => {
-    document.querySelector("#cta-final")?.scrollIntoView({ behavior: "smooth" });
-  };
 
-  const openWhatsApp = () => {
-    const msg = encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?");
+  const openWhatsApp = (servico: string) => {
+    const msg = encodeURIComponent(`Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e tenho interesse no serviço: *${servico}*.\nPodemos conversar sobre como funciona?`);
     window.open(`https://wa.me/5512991406108?text=${msg}`, "_blank");
   };
 
   const services = [
     {
-      title: "Diagnóstico de Carreira",
-      subtitle: "1 sessão + direcionamento",
+      title: "Currículo + LinkedIn",
+      subtitle: "Posicionamento e comunicação estratégica",
       features: [
-        "Análise do cenário atual",
-        "Identificação de bloqueios",
-        "Plano inicial de ação",
-        "Definição de prioridades"
+        "Análise crítica do currículo atual",
+        "Reestruturação focada em impacto e resultados",
+        "Construção de narrativa profissional coerente",
+        "Otimização de LinkedIn (headline, resumo e experiências)",
+        "Alinhamento entre posicionamento e objetivos"
       ],
-      ctaText: "Quero começar",
-      featured: false,
-      onClick: scrollToCTA
+      ctaText: "Quero meu currículo",
+      onClick: () => openWhatsApp("Currículo + LinkedIn")
     },
     {
       title: "Mentoria de Carreira",
-      subtitle: "4 a 6 sessões estruturadas",
+      subtitle: "1 sessão + direcionamento estratégico",
       features: [
-        "Posicionamento profissional claro",
-        "Otimização completa do LinkedIn",
-        "Narrativa de carreira forte",
-        "Plano de execução de 30 dias"
+        "Análise do cenário profissional atual",
+        "Mapeamento de forças e padrões de atuação",
+        "Geração de hipótese prioritária de carreira",
+        "Clareza sobre oportunidades reais na área",
+        "Plano de ação prático para 30 dias"
       ],
-      ctaText: "Ver como funciona",
-      featured: true,
-      onClick: () => {
-        document.querySelector("#como-funciona")?.scrollIntoView({ behavior: "smooth" });
-      }
+      ctaText: "Quero uma sessão",
+      onClick: () => openWhatsApp("Mentoria de Carreira — 1 sessão")
     },
     {
-      title: "Acompanhamento",
-      subtitle: "Acompanhamento contínuo",
+      title: "Mentoria de Carreira",
+      subtitle: "2 sessões + validação e posicionamento",
       features: [
-        "Execução assistida do plano",
-        "Ajustes conforme evolução",
-        "Preparação para entrevistas",
-        "Suporte em negociações"
+        "Diagnóstico profundo de trajetória e perfil",
+        "Aplicação de SWOT de carreira",
+        "Construção de 2–3 hipóteses de rota",
+        "Pesquisa de campo e validação de mercado",
+        "Definição de rota prioritária com critérios claros",
+        "Plano estratégico de 30 dias com metas executáveis"
       ],
-      ctaText: "Falar comigo",
-      featured: false,
-      onClick: openWhatsApp
+      ctaText: "Quero duas sessões",
+      onClick: () => openWhatsApp("Mentoria de Carreira — 2 sessões")
+    },
+    {
+      title: "Programa Completo",
+      subtitle: "Da Clareza ao Posicionamento",
+      features: [
+        "Diagnóstico estratégico aprofundado",
+        "Validação de rota profissional",
+        "Plano de ação estruturado",
+        "Currículo de impacto + LinkedIn otimizado",
+        "Alinhamento entre direção e comunicação ao mercado",
+        "Plano de 30 dias incluso"
+      ],
+      ctaText: "Quero o programa completo",
+      featured: true,
+      badgeText: "Mais completo",
+      onClick: () => openWhatsApp("Programa Completo — Da Clareza ao Posicionamento")
     }
   ];
 
@@ -73,19 +85,29 @@ export function Servicos() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-            >
-              <ServiceCard {...service} />
-            </motion.div>
-          ))}
+        {/* Mobile: scroll nativo com snap */}
+        <div className="md:hidden mb-8">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 -mx-4 px-4 scrollbar-hide">
+            {services.map((service, index) => (
+              <div key={index} className="snap-center shrink-0 w-[85vw]">
+                <ServiceCard {...service} />
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Desktop: grid responsivo mostrando todos os cards */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8"
+        >
+          {services.map((service, index) => (
+            <ServiceCard key={index} {...service} />
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -95,10 +117,10 @@ export function Servicos() {
           className="text-center"
         >
           <p className="text-[#403837] opacity-70 mb-4">
-            Todos os serviços incluem material de apoio e suporte por e-mail entre sessões.
+            Todos os serviços são online e incluem material de apoio.
           </p>
-          <a 
-            href="#faq" 
+          <a
+            href="#faq"
             className="text-[#A47552] hover:text-[#B47449] underline transition-colors"
             onClick={(e) => {
               e.preventDefault();

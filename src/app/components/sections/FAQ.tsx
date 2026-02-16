@@ -5,27 +5,23 @@ export function FAQ() {
   const faqItems = [
     {
       question: "Serve se eu estiver empregado(a)?",
-      answer: "Sim! Na verdade, a maioria das pessoas que atendo está empregada e busca clareza para o próximo passo — seja uma promoção, transição interna ou movimento para outra empresa. Trabalhar no seu desenvolvimento enquanto está empregado(a) é estratégia, não deslealdade."
-    },
-    {
-      question: "E se eu ainda não souber o que quero?",
-      answer: "Essa é exatamente uma das razões mais comuns para buscar mentoria. O processo de diagnóstico é desenhado para trazer clareza sobre seus valores, interesses, forças e o que você realmente quer construir. Começamos por aí."
+      answer: "Sim. A mentoria é voltada para profissionais que já sabem a área que escolheram, mas sentem que a carreira não está avançando como poderia — estejam empregados, estagiando ou atuando fora da área. O foco é clareza estratégica e direcionamento para evoluir."
     },
     {
       question: "Em quanto tempo vejo evolução?",
-      answer: "Depende do ponto de partida e do seu ritmo de execução. Clareza você ganha já nas primeiras sessões. Resultados concretos (como entrevistas, promoção ou nova posição) variam de 4 a 12 semanas, dependendo do mercado e da sua aplicação do plano."
+      answer: "A mentoria já entrega clareza e plano de ação ao final da sessão. A evolução prática depende da execução do plano nos 30 dias seguintes. Clareza vem na sessão; avanço vem do movimento."
     },
     {
-      question: "O atendimento é online?",
-      answer: "Sim, 100% online. Isso permite flexibilidade de agenda e atendimento para qualquer lugar do Brasil (e exterior). Usamos videoconferência com qualidade profissional e você recebe todo o material de apoio por e-mail."
+      question: "É online?",
+      answer: "Sim. As sessões são individuais e realizadas online, com duração média de 1h a 1h30, em ambiente reservado e focado."
     },
     {
       question: "Como funciona o pagamento?",
-      answer: "O pagamento é feito via transferência, PIX ou cartão (parcelamento disponível para pacotes maiores). Após a conversa inicial (gratuita), você recebe a proposta com valores, formato e condições. Só fechamos quando tudo estiver claro para você."
+      answer: "Os serviços possuem valores definidos por formato (1 sessão, 2 sessões ou combo com currículo e LinkedIn). O pagamento é realizado antes da confirmação da agenda."
     },
     {
-      question: "O que preciso para a primeira conversa?",
-      answer: "Apenas disposição para falar sobre onde você está e onde quer chegar. Não precisa de currículo pronto, LinkedIn impecável ou clareza total. A conversa inicial é justamente para entendermos se faz sentido trabalharmos juntos(as) — e é sem compromisso."
+      question: "O que é preciso para a primeira conversa?",
+      answer: "Antes da sessão, você responde a um formulário breve para contextualizar sua trajetória. No dia, é importante estar em ambiente tranquilo e com papel e caneta para anotações. O restante é abertura para reflexão e compromisso com o plano de ação."
     }
   ];
 

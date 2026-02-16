@@ -22,7 +22,10 @@ export function Header() {
     const heroEl = document.getElementById("hero");
     if (heroEl) {
       const heroObserver = new IntersectionObserver(
-        ([entry]) => setIsPastHero(!entry.isIntersecting),
+        ([entry]) => {
+          setIsPastHero(!entry.isIntersecting);
+          if (entry.isIntersecting) setActiveSection("");
+        },
         { threshold: 0.1 }
       );
       heroObserver.observe(heroEl);
