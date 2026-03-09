@@ -10,7 +10,7 @@ export function Badge({ children, className }: BadgeProps) {
   return (
     <motion.span 
       className={cn(
-        "inline-block px-3 py-1 rounded-full text-xs font-medium bg-[#C5A253] text-white",
+        "inline-block px-3 py-1 rounded-full text-xs font-medium bg-brand-gold text-white",
         className
       )}
       initial={{ opacity: 0, scale: 0.8 }}

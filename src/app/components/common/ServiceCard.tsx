@@ -29,9 +29,9 @@ export function ServiceCard({
       className={cn(
         "relative p-7 lg:p-8 rounded-2xl border-2 bg-white bg-opacity-60 backdrop-blur-sm transition-all duration-300 flex flex-col",
         featured
-          ? "border-[#C5A253] shadow-lg"
-          : "border-[#D8C3A5]",
-        "hover:border-[#C5A253] hover:shadow-xl hover:-translate-y-1",
+          ? "border-brand-gold shadow-lg"
+          : "border-brand-border",
+        "hover:border-brand-gold hover:shadow-xl hover:-translate-y-1",
         className
       )}
       initial={{ opacity: 0, y: 20 }}
@@ -45,16 +45,16 @@ export function ServiceCard({
         </div>
       )}
 
-      <h3 className="text-xl lg:text-2xl font-semibold text-[#74685A] mb-1 leading-tight">{title}</h3>
-      <p className="text-[#403837]/70 text-sm mb-4">{subtitle}</p>
+      <h3 className="text-xl lg:text-2xl font-semibold text-brand-heading mb-1 leading-tight">{title}</h3>
+      <p className="text-brand-body/70 text-sm mb-4">{subtitle}</p>
 
       <div className="space-y-2.5 mb-8 flex-grow">
         {features.map((feature, idx) => (
           <div key={idx} className="flex items-start gap-2">
-            <svg className="w-5 h-5 text-[#C5A253] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
-            <span className="text-sm text-[#403837]">{feature}</span>
+            <span className="text-sm text-brand-body">{feature}</span>
           </div>
         ))}
       </div>

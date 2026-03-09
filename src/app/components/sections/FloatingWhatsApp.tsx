@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, X } from "lucide-react";
+import { getWhatsAppUrl } from "../../utils/whatsapp";
 
 export function FloatingWhatsApp() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,7 +11,7 @@ export function FloatingWhatsApp() {
       setIsVisible(window.scrollY > 300);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -18,7 +19,7 @@ export function FloatingWhatsApp() {
     <AnimatePresence>
       {isVisible && (
         <motion.a
-          href={`https://wa.me/5512991406108?text=${encodeURIComponent("Olá, Letícia! 👋\nVim pelo site da LRI Consultoria e gostaria de saber mais sobre a mentoria de carreira.\nPodemos conversar?")}`}
+          href={getWhatsAppUrl("floating")}
           target="_blank"
           rel="noopener noreferrer"
           initial={{ scale: 0, opacity: 0 }}
@@ -26,7 +27,7 @@ export function FloatingWhatsApp() {
           exit={{ scale: 0, opacity: 0 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#A47552] text-white rounded-full shadow-2xl flex items-center justify-center lg:hidden"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-brand-accent text-white rounded-full shadow-2xl flex items-center justify-center lg:hidden"
           aria-label="Contato via WhatsApp"
         >
           <MessageCircle className="w-6 h-6" />

@@ -1,29 +1,20 @@
 import { motion } from "motion/react";
 import { ProblemCard } from "../common/ProblemCard";
 import { Button } from "../common/Button";
+import { scrollToSection } from "../../utils/scroll";
+
+const problems = [
+  "Quero transicionar e não sei por onde começar",
+  "Estou travado(a) e sem direção",
+  "Meu LinkedIn não gera oportunidades",
+  "Tenho entrevistas, mas não avanço",
+  "Quero promoção e reconhecimento",
+  "Quero voltar ao mercado com confiança"
+];
 
 export function ParaQuemE() {
-  const problems = [
-    "Quero transicionar e não sei por onde começar",
-    "Estou travado(a) e sem direção",
-    "Meu LinkedIn não gera oportunidades",
-    "Tenho entrevistas, mas não avanço",
-    "Quero promoção e reconhecimento",
-    "Quero voltar ao mercado com confiança"
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section className="py-20 lg:py-28 relative bg-[#F5EDE3]">
-      {/* Gradiente de transição da Hero */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#D9C2A3] to-transparent" />
-
+    <section className="py-20 lg:py-28 relative bg-brand-bg-light">
       <div className="container mx-auto px-4 lg:px-8 max-w-[1440px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,10 +23,10 @@ export function ParaQuemE() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#74685A] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-brand-heading mb-4">
             Se você está aqui, provavelmente é por um destes motivos
           </h2>
-          <p className="text-lg text-[#403837] opacity-80 max-w-2xl mx-auto">
+          <p className="text-lg text-brand-body opacity-80 max-w-2xl mx-auto">
             Vamos organizar isso com clareza e estratégia.
           </p>
         </motion.div>

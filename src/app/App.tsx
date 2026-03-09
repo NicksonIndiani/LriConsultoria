@@ -11,26 +11,37 @@ import { FAQ } from "./components/sections/FAQ";
 import { CTAFinal } from "./components/sections/CTAFinal";
 import { Footer } from "./components/sections/Footer";
 import { FloatingWhatsApp } from "./components/sections/FloatingWhatsApp";
+import { StarsBackground } from "./components/common/StarsBackground";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#D9C2A3]">
-      <Header />
-      
-      <main>
-        <Hero />
-        <ParaQuemE />
-        <Servicos />
-        <ComoFunciona />
-        <Beneficios />
-        <Depoimentos />
-        <Conteudos />
-        <Sobre />
-        <FAQ />
-        <CTAFinal />
-      </main>
+    <div className="relative min-h-screen bg-brand-bg">
+      <StarsBackground
+        starColor="#A47552"
+        starCount={90}
+        speed={0.3}
+        factor={0.04}
+        className="fixed inset-0 z-0"
+      />
 
-      <Footer />
+      <div className="relative z-10">
+        <Header />
+
+        <main>
+          <Hero />
+          <ParaQuemE />
+          <Servicos />
+          <ComoFunciona />
+          <Beneficios />
+          <Depoimentos />
+          <Conteudos />
+          <Sobre />
+          <FAQ />
+          <CTAFinal />
+        </main>
+
+        <Footer />
+      </div>
       <FloatingWhatsApp />
     </div>
   );
